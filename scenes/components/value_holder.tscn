@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://thuo5x53xp2n"]
+
+[ext_resource type="Script" path="res://scripts/components/ValueHolder.cs" id="1_s77jq"]
+
+[node name="ValueHolder" type="Node"]
+script = ExtResource("1_s77jq")

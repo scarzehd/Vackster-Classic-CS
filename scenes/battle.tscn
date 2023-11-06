@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc5052q2g2u8h"]
+
+[ext_resource type="PackedScene" uid="uid://brgxfv13txlps" path="res://scenes/entities/rune.tscn" id="1_lf3th"]
+[ext_resource type="PackedScene" uid="uid://thuo5x53xp2n" path="res://scenes/components/value_holder.tscn" id="2_h66dt"]
+
+[node name="Battle" type="Node2D"]
+
+[node name="Rune" parent="." instance=ExtResource("1_lf3th")]
+position = Vector2(1, 0)
+
+[node name="HealthHolder" parent="Rune" instance=ExtResource("2_h66dt")]
+Value = 10.0
+MaxValue = 10.0
+
+[node name="SpeedHolder" parent="Rune" instance=ExtResource("2_h66dt")]
