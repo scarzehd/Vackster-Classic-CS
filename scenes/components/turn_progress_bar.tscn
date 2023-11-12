@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5onyhol0jmp"]
+
+[ext_resource type="Script" path="res://scripts/components/TurnProgressBar.cs" id="1_ctkm6"]
+[ext_resource type="PackedScene" uid="uid://thuo5x53xp2n" path="res://scenes/components/value_holder.tscn" id="1_p7rwx"]
+[ext_resource type="PackedScene" uid="uid://cpqk3qq1vlbpk" path="res://scenes/components/value_bar.tscn" id="2_0f2dj"]
+[ext_resource type="Theme" uid="uid://si3pref26o4t" path="res://assets/themes/turn_bar.tres" id="3_lednm"]
+
+[node name="TurnProgressBar" type="Node2D"]
+script = ExtResource("1_ctkm6")
+
+[node name="TurnProgressBar" parent="." node_paths=PackedStringArray("valueHolder") instance=ExtResource("2_0f2dj")]
+theme = ExtResource("3_lednm")
+valueHolder = NodePath("../TurnProgressHolder")
+metadata/_edit_use_anchors_ = true
+
+[node name="TurnProgressHolder" parent="." instance=ExtResource("1_p7rwx")]
+MaxValue = 1.0
+
+[node name="Timer" type="Timer" parent="."]
