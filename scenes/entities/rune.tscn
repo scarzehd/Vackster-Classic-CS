@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://brgxfv13txlps"]
+[gd_scene load_steps=12 format=3 uid="uid://brgxfv13txlps"]
 
 [ext_resource type="Script" path="res://scripts/entities/Rune.cs" id="1_7ya65"]
 [ext_resource type="Texture2D" uid="uid://ceryxih18e112" path="res://assets/sprites/rune.png" id="1_ley1e"]
 [ext_resource type="PackedScene" uid="uid://thuo5x53xp2n" path="res://scenes/components/value_holder.tscn" id="1_ucotb"]
 [ext_resource type="PackedScene" uid="uid://cpqk3qq1vlbpk" path="res://scenes/components/value_bar.tscn" id="2_tmuqa"]
 [ext_resource type="PackedScene" uid="uid://cl5onyhol0jmp" path="res://scenes/components/turn_progress_bar.tscn" id="5_033q5"]
+[ext_resource type="PackedScene" uid="uid://0i51cxwq1p6m" path="res://scenes/components/turn_handler.tscn" id="6_i6gnp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7s0u"]
 atlas = ExtResource("1_ley1e")
@@ -42,13 +43,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Rune" type="Node2D"]
+[node name="Rune" type="Node2D" groups=["combatants"]]
 script = ExtResource("1_7ya65")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ewa14")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="HealthHolder" parent="." instance=ExtResource("1_ucotb")]
 Value = 10.0
@@ -72,5 +74,8 @@ offset_bottom = 68.0
 [node name="TurnProgressHolder" parent="TurnProgressBar" index="1"]
 Value = 2.0
 MaxValue = 2.0
+
+[node name="TurnHandler" parent="." node_paths=PackedStringArray("turnProgressBar") instance=ExtResource("6_i6gnp")]
+turnProgressBar = NodePath("../TurnProgressBar")
 
 [editable path="TurnProgressBar"]

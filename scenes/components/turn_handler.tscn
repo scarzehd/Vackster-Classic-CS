@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0i51cxwq1p6m"]
+
+[ext_resource type="Script" path="res://scripts/components/TurnHandler.cs" id="1_u2lj6"]
+
+[node name="TurnHandler" type="Node"]
+script = ExtResource("1_u2lj6")
